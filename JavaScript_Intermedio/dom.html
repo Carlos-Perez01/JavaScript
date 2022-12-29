@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <p id="parrafo">Mi primera clase de DOM</p>
+    <div>Hola</div>
+    <ul id="todo_list">
+        
+    </ul>
+    <input type="text" id="todoTitle" />
+    <button id="agregarTarea">Agregar Tarea</button>
+    <ol id="todo_list_ol">
+
+    </ol>
+    <input type="text" id="todoTitle2" />
+    <button id="agregarTarea2">Agregar Tarea</button>
+    <script type="text/javascript">
+        var parrafo = document.getElementById("parrafo");
+
+        console.log(parrafo.innerText) /*Accede al contenido del parrafo con innerText*/
+        
+        var contenedor = document.getElementsByTagName("div");
+        console.log(contenedor)
+        contenedor[0].id = "mi_id_de_prueba"; /*Añade una id que se crea en el div*/
+        contenedor[0].style.color = "red"; /*Para aplicarle estilos*/
+
+        window.navigator /*Caracteristicas del navegador*/
+        window.localStorage 
+        window.localStorage.setItem("color","blue") /*Objetos que se guardan en windows*/
+        window.location /*Para ver la url ....*/
+        window.history /*Historial de navegación*/
+        //window.history.back() , es como la flechita para atras del navegador 
+    
+        //***************************************************************************************
+        var tareas = [
+            "Hacer la tareas",
+            "Hacer la comida",
+            "Tirar la basura",
+        ]
+
+        var todolist = document.querySelector('#todo_list') // Para el id es # y para la clase .
+        
+        for (var i = 0; i < tareas.length; i += 1){
+            var tarea = tareas[i];
+            var li = document.createElement("li"); // Crea el li, aun no aparece en el html
+            li.textContent = tarea;
+            li.id = "elemento_" + i; // para ponerle una id con un nombre diferente
+            todolist.appendChild(li); // Agregar le elemento li al html
+        }
+
+            setTimeout(function(){ // Para que cuando pasen 2 segundos se elimite un li
+                var elementoEliminar = document.getElementById("elemento_2");
+
+                todolist.removeChild(elementoEliminar); //Para eliminar un li
+            }, 2000) // en milisegundos
+
+
+        var agregarBoton = document.getElementById("agregarTarea");
+        agregarBoton.addEventListener("click", function(){
+            var todovalue = document.getElementById("todoTitle").value;
+
+            var li = document.createElement("li");
+
+            li.textContent = todovalue;
+            todolist.appendChild(li);
+        });
+
+        // Para resumir un poco mejor lo podemos poner así
+
+        var tareas = [
+            "Hacer la tareas",
+            "Hacer la comida",
+            "Tirar la basura",
+        ]
+
+        var todolistol = document.querySelector('#todo_list_ol') // Para el id es # y para la clase .
+
+        function agregarTarea(tarea, id) {
+            var li = document.createElement("li"); 
+            li.textContent = tarea;
+
+            if (id){
+                li.id = id;
+            }
+
+            todolistol.appendChild(li);
+        }
+
+        for (var i = 0; i < tareas.length; i += 1){
+            var tarea = tareas[i];
+            agregarTarea(tarea);
+        }
+
+        var agregarBoton = document.getElementById("agregarTarea2");
+        agregarBoton.addEventListener("click", function(){
+            var todovalue = document.getElementById("todoTitle2").value;
+            agregarTarea(todovalue);
+        });
+
+
+
+
+    </script>
+</body>
+</html>

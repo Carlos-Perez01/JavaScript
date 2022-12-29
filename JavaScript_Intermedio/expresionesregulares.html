@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresiones Regulares</title>
+</head>
+<body>
+    <p>Expresiones Regulares</p>
+    <script type="text/javascript">
+        var texto = "Hola mundo";
+
+        var regExp = /^[a-z]$/g; //Que termina y empieza en mayuscula o no
+        console.log(texto.search(regExp));
+        console.log(regExp.test(texto));
+
+        var regExp2 = /hol./; // Y los siguientes caracteres que sean cualquiera
+        var texto2 = "holiiiiii";
+        
+        console.log(texto2.search(regExp2));
+        console.log(regExp2.test(texto2));
+
+
+        var regExp3 = /s+$/; // Si termina en s o no
+        var texto3 = "bienvenido";
+
+        console.log(texto3.search(regExp3));
+        console.log(regExp3.test(texto3));
+    </script>
+</body>
+</html>

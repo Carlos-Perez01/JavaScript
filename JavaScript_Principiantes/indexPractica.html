@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript para Principiantes</title>
+</head>
+<body>
+    <p class="newsletter-text"></p>
+    <p class="texto"></p>
+    <script type="text/javascript">
+        /*1.- En una cena de amigos os llega la cuenta y queréis dividir entre todos 
+        ¿Cuánto os toca pagar a cada uno?
+        
+        Total: 102$
+        Personas: 6
+        */
+
+        const TOTAL = 102;
+        const PERSONAS = 6;
+        let apagar = (TOTAL / PERSONAS);
+        console.log(apagar)
+
+        /*2.- En un carrito de la compra el usuario ha elegido diferentes productos que debes sumar. Y por
+        ser su primera compra deberás aplicar al total un 10% de descuento
+        
+        Movil: 300$ + Cascos30$ + Funda 10$
+        Descuento: 10%
+        */
+
+        const MOVIL = 300;
+        const CASCOS = 30;
+        const FUNDA = 10;
+        const DESCUENTO = 0.1;
+        
+        const TOTAL2 = MOVIL + CASCOS + FUNDA;
+        let apagar2 = TOTAL2 * DESCUENTO;
+        console.log(apagar2)
+
+        /* 3.- Te han pedido que incluyas en el texto de la próxima newsletter unas variables dinámicas 
+        que te vienen del usuario 
+        
+        Nombre: Cristina
+        Videojuego: Link Awakening
+        Descuento: 20%*/
+
+        const NOMBRE = "Cristina";
+        const VIDEOJUEGO = "Link Awakening";
+        const DESCUENTO2 = 20;
+        const NEWSLETTER = ` Hola ${name}, Como regalo de bienvenida al Club de gamers,
+        queremos ofrecer un descuento de ${DESCUENTO2} en el próximo lanzamiento de tu 
+        interes ${VIDEOJUEGO}, Espero que lo disfrutes, Un saludo.`
+
+        document.querySelector(".newsletter-text").innerHTML = NEWSLETTER
+        /*Este ultimo paso no es obligatorio ya que no sabemos aun, pero lo podrías poner para
+        que se muestre en la consola*/
+
+        /*4.- Mostrar una información al usuario dependiendo de si está conectado o no
+        
+        Mensaje si No esta conectado: Debes registrarte para leer este artículo
+        Mensaje Si está conectado: Haz click aquí para ver el contenido*/
+
+        const ESTALOGEADO = true;
+        const TEXTO = document.querySelector(".texto")
+        if (ESTALOGEADO){
+            TEXTO.innerHTML = "Haz click aquí para ver el contenido"
+        } else {
+            TEXTO.innerHTML = "Debes registrarte para leer este artículo"
+        }
+
+        /*5.- Quiero irme de viaje, ¿tengo suficiente dinero?
+        Sí, me voy de viaje.
+        No, tengo que seguir ahorrando*/
+
+        const VUELO = 100;
+        const HOTEL = 50;
+        const TOUR = 30;
+        const TOTALIMPORTE = VUELO + HOTEL + TOUR;
+        const AHORRADO = 300;
+
+        if (AHORRADO > TOTALIMPORTE){
+            console.log('Si, me voy de viaje')
+        } else if (AHORRADO === TOTALIMPORTE){
+            console.log('Si, pero tienes un persupuesto muy ajustado')
+        } else {
+            console.log('No, tengo que seguir ahorrando')
+        }
+        
+        const RESULTADO = AHORRADO > TOTALIMPORTE 
+        ? console.log('Si, me voy de viaje')
+        : console.log('No, me voy de viaje')
+    </script>
+</body>
+</html>

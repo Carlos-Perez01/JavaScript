@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript para principiantes en la mima página</title>
+</head>
+<body>
+    <script type="text/javascript">
+        alert("hola mundo")
+        console.log("hola muy buenas")
+        debugger /*Sirve para parar la ejecución de la página*/
+        console.log("Después del debug")
+        console.log(mensaje)
+
+        /*Variables*/
+        var mensaje = "mensaje de texto"; /*Para crear una variable global, se puede cambiar, si se puede definir despues*/
+        let mensaje2 = "mensaje de texto2"; /*Para crear una variable global, se puede cambiar, no se pueden definir después*/
+        const MENSAJE3 = "mensaje de texto3"; /*Para crear una constante global, no se puede cambiar, no se puede definir después*/
+        console.log(mensaje)
+        console.log(mensaje2)
+        console.log(MENSAJE3)
+
+        if (true) {
+            const holamundo = "Hola Mundo"
+            console.log(holamundo)
+        }
+        function dihola() {
+            const holamundo2 = "Hola Mundo 2"
+            console.log(holamundo2)
+        }
+        /*Variables locales, la variable no se guarda si sales fuera de su entono especifico*/
+        
+
+        /*Numeros*/
+        console.log(2 + 2)
+        console.log(2 - 2)
+        console.log(2 * 2)
+        console.log(2 / 2)
+
+        console.log(10 < 20) /*true*/
+        console.log(40 > 20) /*true*/
+        console.log(20 <= 20) /*true*/
+        console.log(20 >= 20) /*true*/
+        console.log(20 < 10) /*false*/
+        console.log(10 == 10) /*true*/
+        console.log(10 === "10") /*false , porque el triple igual valora el tipo que es*/
+        console.log(10 === 10) /*true*/
+        console.log(20 !== 10) /*true , para decir que es distinto*/
+
+        /*Type of, para saber el tipo que es (string, number, boleano)*/
+        let num = 20
+        console.log(typeof num) 
+
+        const notnumber = 2 + 'asdsaf';
+        console.log(typeof notnumber) 
+
+        /*Is not a Number (isNaN), para decir que si no es un numero devuelva true*/
+        console.log(isNaN(NaN)) /*NaN = No es un numero*/
+        console.log(isNaN("Hola muy buenas")) /*true, porque es un string*/
+        console.log(isNaN("12")) /*False, porque aunque sea un sting tiene un número*/
+        console.log(isNaN(12))
+
+        /*toString, para combertirlo a string*/
+        let number = 100.276426473
+        console.log(typeof number) /*Tipo numero*/
+        console.log(typeof number.toString()) /*Tipo string*/
+
+        /*toFixed, para redondear*/
+        console.log(number.toFixed(2))
+
+
+        /*Operaciones*/
+
+        console.log("hellow " + "World") /*Para concatenar textos*/
+        
+        const NAME = "Carlos";
+        console.log("Hello " + NAME)
+        console.log(`${NAME}`)/*Se utiliza ${NAME}, para optener la ejecución de la variable*/
+        console.log(`Hola ${NAME}`) 
+
+        console.log(typeof NAME)
+        console.log(NAME.length) /*Para saber el tamaño del string*/
+        console.log(NAME.includes('asasdgs')) /*Para comoprobar si el texto de la variable contiene asasdgs*/
+        console.log(NAME.slice(2,4)) /*Para coger las letras entre la posición 2 y la 4*/
+        console.log(NAME.replace("Ca","Pe")) /*Para remplazar unas letras por otra*/
+        const TEXT = "    Hola    muy   buenas a    todos   ";
+        console.log(TEXT.trim()) /*Para quitarle los espacios del principio y los del final, y quedarlo todo limpio*/
+        const GEOLOCATION = "Calle Alguna, 7 , 1G"
+        console.log(GEOLOCATION.split(",")) /*Para separarlos por comas*/
+
+        /*Booleanos*/
+
+        /*True*/
+        console.log(Boolean(1))
+        console.log(Boolean("Hola"))
+        console.log(Boolean(3.14))
+        console.log(Boolean(100 > 5))
+        console.log(Boolean(1 < 100))
+        console.log(Boolean("1" == 1))
+
+        /*False*/
+        console.log(Boolean(0))
+        console.log(Boolean(-0))
+        console.log(Boolean(""))
+        console.log(Boolean(NaN))
+        console.log(Boolean(null))
+        console.log(Boolean(undefined))
+        console.log(Boolean("1" === 1))
+
+        /*Undefined*/
+        console.log(a)
+        var a = 'hola';
+        console.log(a)
+
+        let b = 'hola';
+        console.log(b)
+        
+        /*Null*/
+    
+        console.log(c)
+        var c = null;
+        console.log(c)
+
+        let d = null;
+        console.log(d)
+
+        /*Funciones*/
+
+        /*Se define*/
+        function hola (){
+            console.log("hola mundo")
+        }
+        /*Se Ejecuta*/
+        hola()
+
+        /*Ejemplos*/
+        const VALOR = 2;
+        function suma(){
+            console.log(VALOR+5)
+        }
+        suma()
+
+        function suma2(a, b){
+            console.log(a+b)
+        }
+        suma2(5,7)
+
+        function holamundo(texto = "Hola mundo"){
+            console.log(texto)
+        }
+        holamundo()
+
+        function holamundo2(texto = "Hola mundo"){
+            return `${texto} Carlos`
+        }
+        console.log(holamundo2())
+
+        /*Funciones anonimas*/
+
+        var holamundo = function(name = "carlos"){
+            return `hola ${name}`
+        }
+        console.log(holamundo())
+        console.log(holamundo('Pepe'))
+
+        /*Resumir codigo*/
+        var message = (name) => `Hola ${name}`
+        console.log(message("carlos"))
+        var message2 = (name) => {
+            return `Adios ${name}`
+        }
+        console.log(message2("Lola"))
+
+        
+
+    </script>
+</body>
+</html>
