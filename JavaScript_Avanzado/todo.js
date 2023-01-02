@@ -223,8 +223,9 @@
                 this.items.push(el);
             }
             unstack() {
-                // Devuelve el ultimo elemento o undefined
+                // Devuelve y elimina el ultimo elemento o undefined
                 return this.legth() > 0 ? this.items.pop() : undefined;
+                // Podemos utilizar push(numero a añadir) para colocarlo el ultimo de la cola
             }
         }
 
@@ -240,8 +241,9 @@
                 this.items.push(el);
             }
             dequeue(){
-                // Devuelve el primer elemento o undefined
+                // Devuelve y elimina el primer elemento o undefined
                 return this.legth() > 0 ? this.items.shift() : undefined;
+                // Podemos utilizar unshift(numero a añadir) para colocarlo el primero de la cola 
             }
 
         }
