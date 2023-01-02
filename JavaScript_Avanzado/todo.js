@@ -207,7 +207,21 @@
 
         */
 
+    /* Clases
     
+    Class (nombredelaclase){
+        constructor((variablesaañadir)){
+            ejecución
+        }
+    }
+
+    // Es lo mismo que
+
+    Function (nombredelaclase) ((variablesaañadir)){
+        ejecución
+    }
+
+    */
 
     /*Pilas y Colas
     
