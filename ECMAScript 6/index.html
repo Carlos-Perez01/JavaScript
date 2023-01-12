@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMAScript 6</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        /*En ECMA 6:
+        El let no se puede volver a declarar, el var si
+        */
+        
+        /*Block scope*/
+
+        var name = 'Pep';
+        if (true) {
+          var name = 'Jose';
+        } else {
+          var name = 'Jane';
+        }
+
+        console.log(name); // => "Jane"
+
+        let name = 'Pep';
+        if (true) {
+          let name = 'Jose';
+        } else {
+          let name = 'Jane';
+        }
+
+        console.log(name); // => "Pep"
+
+        const name = 'Pep';
+        if (true) {
+          const name = 'Jose';
+        } else {
+          const name = 'Jane';
+        }
+
+        console.log(name); // => "Pep"
+
+        console.log(name); // => undefined
+        var name;
+        name = 'Jose';
+        console.log(name); // => "Jose"
+
+        //const FRUTA; // => Mal
+        //const FRUTA; FRUTA=manzana // => Mal
+        //const FRUTA = ["pera"]; FRUTA = ["Manzana"] // => Mal
+        //const FRUTA = ["pera"]; FRUTA.push() = ["Manzana"] // => Bien
+        //const FRUTA = {nombre : "pera"}; FRUTA.nombre = "manzana"; / => Bien
+
+        /*Si utilizamos arrays o objetos, utilizar siempre const*/
+
+        /*************************************************************************/
+
+        console.log(name); // => ReferenceError: name is not defined
+        let name;
+        name = 'Jose';
+        console.log(name);
+
+        /*El tiempo en el que pasa entre que se reserva un espacio en memoria 
+        para la variable y se le asigna un valor es conocido como Dead Zone. */
+
+        /*Template string = ${variable}*/
+
+        /*Template string como una funcion*/
+
+        function myTag(strings, personName, personAge) {
+            const str0 = strings[0]; // "Ese "
+            const str1 = strings[1]; // " es un"
+            let strEdad = 'joven';
+
+            if (personAge > 99) {
+                strEdad = 'viejo';
+            }
+
+        return `${str0}${personName}${str1}${strEdad}`;
+        }
+
+        const personName = 'Jose';
+        const personAge = 28;
+            
+        const result = myTag`Ese ${personName} es un ${personAge}`;
+            
+        console.log(result); // Ese Jose es un joven
+
+        /*for of*/
+
+        const num = [1,2,3,4,5]
+        num.forEach(function(item){}); // Mostraria los resultados con el foreach
+
+        const person ={
+            name: "carlos"
+        }
+
+        for (const key in person){
+            const element = person[key];
+        } //Para objetos es así
+
+        for (const numeros of num) {
+            console.log(numeros)
+        } 
+        
+
+        /*For of sobre array*/
+
+        let strText = 'yes';
+
+        for (let value of strText) {
+          console.log(value);
+        }
+        // "y"
+        // "e"
+        // "s"
+
+        let arr = [1, 2, 3];
+
+        for (const value of arr) {
+          console.log(value);
+        }
+        // 1
+        // 2
+        // 3
+
+        //No se puede realizar con los objetos, el forof.
+
+        /*Funciones*/
+
+        /*Función en ECMA5*/
+        function multiply(a, b) {
+          if (typeof b === 'undefined') {
+            b = 1;
+          }
+        
+          return a * b;
+        }
+
+        console.log(multiply(5, 2));
+        // expected output: 10
+
+        console.log(multiply(5));
+        // expected output: 5
+
+        /*Default parameters*/
+        function multiply(a, b = 1) {
+          return a * b;
+        }
+        
+        console.log(multiply(5, 2));
+        // expected output: 10
+
+        console.log(multiply(5));
+        // expected output: 5
+
+
+        /*Arrow Function*/
+
+        function multiply(a, b) {
+          return a * b;
+        }
+
+        const multiply = (a, b) => a * b;
+
+        /*Para devolver un objeto*/
+        const createuser = (nombre) => ({
+          name: "Carlos",
+          age: Math.round(Math.random() * 100),
+        }); 
+
+        /*This en arrow function, no se puede utilizar comunmente ya que pierde el contexto*/
+
+        /*Clases*/
+
+        function person(gender){
+          this.gender = gender;
+        }
+
+        person.prototype.sayHello = function (){
+          console.log("hola");
+        }
+
+        const person = new person('female');
+
+        console.log(person.sayHello);
+
+        /*Class*/
+
+        class Person {
+          constructor(fname, lname) {
+            this.firstName = fname;
+            this.lastName = lname;
+          }
+        }
+
+        const person = new Person('testFirstName', 'testLastName');
+
+        console.log(person.firstName); // testFirstName
+        console.log(person.lastName); // testLastName
+
+        /*Con extends*/
+
+        class Developer extends Person {}
+
+        const person = new Developer('testFirstName', 'testLastName');
+
+        console.log(person.firstName); // testFirstName
+        console.log(person.lastName); // testLastName
+
+        /*Array Destructuring*/
+
+        const [first, second, third] = ['Laide', 'Gabriel', 'Jets'];
+        console.log(first, second, third); // => "Laide", "Gabriel", "Jets"
+
+        // ignore 'Gabriel'
+        const [primero, , tercero] = ['Laide', 'Gabriel', 'Jets'];
+        console.log(primero, tercero); // => "Laide", "Jets"  
+        
+        const [uno, dos, tres, nonExistingIndex = 'Bob'] = ['Laide', 'Gabriel', 'Jets'];
+        console.log(uno, tres, nonExistingIndex); // => "Laide", "Gabriel", "Jets", "Bob"
+
+        /*Object Destructuring*/
+
+        const person = { name: 'Lauryn', age: 75 };
+
+
+        const name = person.name;
+        const age = person.age;
+
+        console.log(name, age); // => "Lauryn", 75
+
+        /*Aplicando destructuring*/
+
+
+        const { name, edad } = person;
+
+        console.log(name, edad); // => "Lauryn", 75
+
+
+        const { name, anios, lastName = 'Hill' } = person;
+
+        console.log(name, anios, lastName); // => "Lauryn", 75, "Hill"
+
+        /*Renombrar variable*/
+
+        const { name: nombre, anio , apellido = 'Hill' } = person;
+
+        // name is overrided by personName
+        console.log(nombre, anio , apellido); // => "Lauryn", 75, "Hill"
+
+
+        /*Operadores spread y rest*/
+
+        //Rest
+        const person = { name: 'Lauryn', age: 75, hobbies: ["sports"] };
+
+        const {name, ...rest} = person; 
+
+        console.log(nombre, rest); 
+        // El parámetro rest nos permite pasar un número indefinido de parámetros a una función 
+        //y acceder a ellas a través de un array
+
+        //Spread
+        const person2 = { name: 'Carlos', age: 75, hobbies: ["sports"] };
+
+        const {name, ...spread} = person2; 
+        console.log(nombre, spread); 
+
+        const myarr = [1, 2, 3, 4, 5];
+        const [primer, ...spreaditems] = myarr;
+
+        console.log(nombre, spreaditems); 
+        //nos permite extender o propagar los elementos de un elemento iterable, array o objeto 
+        //en una lista de sus elementos individuales. Para ello se utiliza los tres puntos …”
+
+
+        /*Promesas*/
+
+        // 3 Estados: 
+        //Pending: el estado inicial de la promesa.
+        //Resolved: cuando la promesa se ha completado.
+        //Rejected: cuando la promesa ha fallado.
+
+        const myPromise = new Promise((resolve, reject) => {
+          reject(new Error('No cocinamos este tipo de haburguesas'));
+        });
+
+        myPromise.then(function todoHaIdoBien(burger) {
+          console.log(burger); //Then es el la función dedicada a la resolución de una
+        })
+        .catch (function algoHaIdoMal(){
+          console.log(err);
+        }) //Para errores en el caso de arriba salta el catch
+
+        /*Promise.all (junta promesas, y las trata en conjunto)*/
+
+        //link: https://prnt.sc/bK35yO_CoYWJ
+
+        /*Promise.race (Es igual que el all, pero aquí solo te devuelve la primera promesa que se hizo)*/
+
+        //Link: https://prnt.sc/y2cQuzarCt1w
+
+
+
+
+        
+
+    </script>
+</body>
+</html>
